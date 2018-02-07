@@ -199,7 +199,7 @@ var ContactsComponent = (function () {
     ContactsComponent.prototype.ngOnInit = function () {
     };
     ContactsComponent.prototype.API = function () {
-        var url = "http://localhost:8000/getAll";
+        var url = "http://localhost:4200/getAll";
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     ContactsComponent.prototype.call = function () {
@@ -317,7 +317,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.http.post('http://localhost:4200/login', { email: this.user.email, password: this.user.password }, { headers: this.header }).subscribe(function (data) {
+        this.http.post('/login', { email: this.user.email, password: this.user.password }, { headers: this.header }).subscribe(function (data) {
             var response = data.json();
             console.log(response);
             alert(response.msg);
@@ -331,7 +331,7 @@ var LoginComponent = (function () {
         });
     };
     LoginComponent.prototype.getAllUser = function () {
-        this.http.get('http://localhost:4200/getAll').subscribe(function (data) {
+        this.http.get('/getAll').subscribe(function (data) {
             var response = data.json();
             console.log(response);
             console.log(response.data);
@@ -377,13 +377,13 @@ var MapService = (function () {
         this.http = http;
     }
     MapService.prototype.get = function () {
-        return this.http.get("http://localhost:4200/geta").map(function (result) { return result.json(); });
+        return this.http.get("/geta").map(function (result) { return result.json(); });
     };
     MapService.prototype.getproduct = function () {
-        return this.http.get("http://localhost:4200/product/getdata").map(function (result) { return result.json(); });
+        return this.http.get("/product/getdata").map(function (result) { return result.json(); });
     };
     MapService.prototype.deleteUser = function (_id) {
-        return this.http.delete('http://localhost:4200/product/delete/' + _id);
+        return this.http.delete('/product/delete/' + _id);
     };
     MapService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -480,7 +480,7 @@ var MapComponent = (function () {
 /***/ "../../../../../src/app/product display/productdisplay.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n    <h2>Product Display Page </h2>\n    \n<table class=\"table\">\n    <thead>\n        <tr>\n            <th> Product Name</th>\n\n            <th>Product type </th>\n            <th>Product Image </th>\n           \n\n\n        </tr>\n    </thead>\n\n\n    <tr *ngFor=\"let item of result\" >\n        <td >{{item.proname}}   </td>\n        <td>{{item.protype}}</td>\n           <td> <img [src]=\"item.proimage\" width=\"100px\" height=\"100px\">\n        </td>\n        <td>\n            <button class=\"btn btn-primary\"  >Edit </button>\n        </td>\n        <td>\n\n            <button class=\"btn btn-primary\"  (click)=\"deleteUser()\" mdbRippleRadius > Delete</button>\n        </td>\n        \n\n\n\n    </tr>\n    </tbody>\n\n</table>\n    \n</div>\n\n\n\n"
+module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n    <h2>Product Display Page </h2>\n\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <th> Product Name</th>\n\n                <th>Product type </th>\n                <th>Product Image </th>\n                <th>Product Image </th>\n\n\n\n            </tr>\n        </thead>\n\n\n        <tr *ngFor=\"let item of result\">\n            <td>{{item.proname}} </td>\n            <td>{{item.protype}}</td>\n           \n            <td>\n                <img [src]=\"item.proimage\" width=\"100px\" height=\"100px\">\n            </td>\n            <td>{{item._id}}\n                    \n                                </td>\n            <td>\n                <button class=\"btn btn-primary\">Edit </button>\n            </td>\n            <td>\n\n                <button class=\"btn btn-primary\" (click)=\"deleteUser(item._id)\" mdbRippleRadius> Delete</button>\n            </td>\n\n\n\n\n        </tr>\n        </tbody>\n\n    </table>\n\n</div>"
 
 /***/ }),
 
@@ -522,7 +522,7 @@ var ProductDisplayComponent = (function () {
     ProductDisplayComponent.prototype.ngOnInit = function () {
     };
     ProductDisplayComponent.prototype.API = function () {
-        var url = "http://localhost:4200/product/getdata";
+        var url = "/product/getdata";
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     ProductDisplayComponent.prototype.call = function () {
@@ -590,7 +590,7 @@ var ProductComponent = (function () {
     }
     ProductComponent.prototype.register = function () {
         var _this = this;
-        this.http.post('http://localhost:4200/product/add', { proname: this.product.proname, protype: this.product.protype, proimage: this.product.proimage }, { headers: this.header }).subscribe(function (data) {
+        this.http.post('/product/add', { proname: this.product.proname, protype: this.product.protype, proimage: this.product.proimage }, { headers: this.header }).subscribe(function (data) {
             var response = data.json();
             console.log(response);
             alert(response.msg);
@@ -666,7 +666,7 @@ var RegistrationComponent = (function () {
             alert("Passwords do not match");
         }
         else {
-            this.http.post('http://localhost:4200/registration', { fname: this.user.fname, lname: this.user.lname, mno: this.user.mno, email: this.user.email, password: this.user.password, cpass: this.user.cpass }, { headers: this.header }).subscribe(function (data) {
+            this.http.post('/registration', { fname: this.user.fname, lname: this.user.lname, mno: this.user.mno, email: this.user.email, password: this.user.password, cpass: this.user.cpass }, { headers: this.header }).subscribe(function (data) {
                 var response = data.json();
                 console.log(response);
                 alert(response.msg);
