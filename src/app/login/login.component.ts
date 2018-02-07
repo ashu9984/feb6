@@ -25,7 +25,7 @@ export class LoginComponent  {
     ngOnInit(){
     }
     login() {
-        this.http.post('https://localhost:4200/login', {email:this.user.email, password:this.user.password}, { headers: this.header }).subscribe(data => {
+        this.http.post('HTTPS://localhost:4200/login', {email:this.user.email, password:this.user.password}, { headers: this.header }).subscribe(data => {
             let response = data.json();
             console.log(response);
             alert(response.msg);
