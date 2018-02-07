@@ -80,7 +80,12 @@ app.delete('/delete/:id', function (req, res) {
         var id = req.params.id;
         console.log(id);
         product.remove({ _id: mongojs.ObjectId(id) }, function (err, args) {
-            res.json(args);
+            res.json({
+                msg: 'Product Delete',
+                
+
+            });
+
            
     
         })
@@ -89,7 +94,7 @@ app.delete('/delete/:id', function (req, res) {
     
     
     
-    app.get('/edit/:id', function (req, res) {
+app.get('/edit/:id', function (req, res) {
         var id = req.params.id;
     
         product.findOne({ _id: mongojs.ObjectId(id) }, function (err, args) {
@@ -102,8 +107,8 @@ app.delete('/delete/:id', function (req, res) {
     
     
     });
-    app.put('/updateProdect/:id',function(req, res){
-        
+    app.post('/updateProduct/:id',function(req, res){
+            console.log('errrr')
             var id =req.params.id;
         
             console.log(req.body.proname);

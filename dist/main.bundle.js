@@ -533,7 +533,12 @@ var ProductDisplayComponent = (function () {
     };
     ProductDisplayComponent.prototype.deleteUser = function (_id) {
         var _this = this;
-        this.map.deleteUser(_id).subscribe(function () { _this.call(); });
+        this.map.deleteUser(_id).subscribe(function (data) {
+            var response = data.json();
+            console.log(response);
+            alert(response.msg);
+            (function () { _this.call(); });
+        });
     };
     ProductDisplayComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
