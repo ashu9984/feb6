@@ -480,7 +480,7 @@ var MapComponent = (function () {
 /***/ "../../../../../src/app/product display/productdisplay.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n    <h2>Product Display Page </h2>\n\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <th> Product Name</th>\n\n                <th>Product type </th>\n                <th>Product Image </th>\n                <th>Product Image </th>\n\n\n\n            </tr>\n        </thead>\n\n\n        <tr *ngFor=\"let item of result\">\n            <td>{{item.proname}} </td>\n            <td>{{item.protype}}</td>\n           \n            <td>\n                <img [src]=\"item.proimage\" width=\"100px\" height=\"100px\">\n            </td>\n            <td>{{item._id}}\n                    \n                                </td>\n            <td>\n                <button class=\"btn btn-primary\">Edit </button>\n            </td>\n            <td>\n\n                <button class=\"btn btn-primary\" (click)=\"deleteUser(item._id)\" mdbRippleRadius> Delete</button>\n            </td>\n\n\n\n\n        </tr>\n        </tbody>\n\n    </table>\n\n</div>"
+module.exports = "<div class=\"col-md-6 col-md-offset-3\">\n    <h2>Product Display Page </h2>\n\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <th> Product Name</th>\n\n                <th>Product type </th>\n                <th>Product Image </th>\n                \n\n\n\n            </tr>\n        </thead>\n\n\n        <tr *ngFor=\"let item of result\">\n            <td>{{item.proname}} </td>\n            <td>{{item.protype}}</td>\n           \n            <td>\n                <img [src]=\"item.proimage\" width=\"100px\" height=\"100px\">\n            </td>\n            \n            \n            <td>\n\n                <button class=\"btn btn-primary\" (click)=\"deleteUser(item._id)\" mdbRippleRadius> Delete</button>\n            </td>\n\n\n\n\n        </tr>\n        </tbody>\n\n    </table>\n\n</div>"
 
 /***/ }),
 
@@ -537,7 +537,7 @@ var ProductDisplayComponent = (function () {
             var response = data.json();
             console.log(response);
             alert(response.msg);
-            (function () { _this.call(); });
+            _this.call();
         });
     };
     ProductDisplayComponent = __decorate([

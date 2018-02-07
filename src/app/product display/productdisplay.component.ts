@@ -52,7 +52,7 @@ export class ProductDisplayComponent {
                 let response = data.json();
                 console.log(response);
                 alert(response.msg);
-                () => { this.call() }
+               this.call() 
             },);
 
 
