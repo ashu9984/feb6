@@ -6,7 +6,6 @@ var mongoose = require('mongoose')
 var mongojs = require('mongojs');
 var product = require('../models/product')
 var router = require('router')
-var Q = require('q');
 
 
 app.post('/add', function (req, res) {
