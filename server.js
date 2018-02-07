@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
+const path = require('path')
 
 var config = require('./config')
 var registrationLogin = require('./router/registrationLogin')
@@ -11,7 +12,7 @@ var product = require('./router/product')
 var jwtVerify = require('./router/jwtVerify')
 
 
-var port = process.env.PORT || 8000; // used to create, sign, and verify tokens
+var port = process.env.PORT || 4200; // used to create, sign, and verify tokens
 mongoose.connect(config.database); // connect to database
 
 
@@ -40,10 +41,9 @@ app.use(function(req, res, next) {
     next();
   });
   
- app.use('/static', express.static('dist'))
+  app.use(express.static(path.join(__dirname, 'dist')))
+  
 app.use('/',registrationLogin)
 app.use('/product',product)
 
-
-//app.listen("port");
-console.log('Use API routes http://localhost:' + port);
+app.listen(port, () => console.log(`Listening on ${ port }`))

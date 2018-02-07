@@ -34,7 +34,7 @@ export class ProductDisplayComponent  {
 
       }
 API(){
-    let url="http://localhost:8000/product/getdata"
+    let url="http://localhost:4200/product/getdata"
    return this.http.get(url).map(
         res=>res.json()
     )

@@ -317,7 +317,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.http.post('http://localhost:8000/login', { email: this.user.email, password: this.user.password }, { headers: this.header }).subscribe(function (data) {
+        this.http.post('http://localhost:4200/login', { email: this.user.email, password: this.user.password }, { headers: this.header }).subscribe(function (data) {
             var response = data.json();
             console.log(response);
             alert(response.msg);
@@ -331,7 +331,7 @@ var LoginComponent = (function () {
         });
     };
     LoginComponent.prototype.getAllUser = function () {
-        this.http.get('http://localhost:8000/getAll').subscribe(function (data) {
+        this.http.get('http://localhost:4200/getAll').subscribe(function (data) {
             var response = data.json();
             console.log(response);
             console.log(response.data);
@@ -377,13 +377,13 @@ var MapService = (function () {
         this.http = http;
     }
     MapService.prototype.get = function () {
-        return this.http.get("http://localhost:8000/geta").map(function (result) { return result.json(); });
+        return this.http.get("http://localhost:4200/geta").map(function (result) { return result.json(); });
     };
     MapService.prototype.getproduct = function () {
-        return this.http.get("http://localhost:8000/product/getdata").map(function (result) { return result.json(); });
+        return this.http.get("http://localhost:4200/product/getdata").map(function (result) { return result.json(); });
     };
     MapService.prototype.deleteUser = function (_id) {
-        return this.http.delete('http://localhost:8000/product/delete/' + _id);
+        return this.http.delete('http://localhost:4200/product/delete/' + _id);
     };
     MapService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -522,7 +522,7 @@ var ProductDisplayComponent = (function () {
     ProductDisplayComponent.prototype.ngOnInit = function () {
     };
     ProductDisplayComponent.prototype.API = function () {
-        var url = "http://localhost:8000/product/getdata";
+        var url = "http://localhost:4200/product/getdata";
         return this.http.get(url).map(function (res) { return res.json(); });
     };
     ProductDisplayComponent.prototype.call = function () {
@@ -590,7 +590,7 @@ var ProductComponent = (function () {
     }
     ProductComponent.prototype.register = function () {
         var _this = this;
-        this.http.post('http://localhost:8000/product/add', { proname: this.product.proname, protype: this.product.protype, proimage: this.product.proimage }, { headers: this.header }).subscribe(function (data) {
+        this.http.post('http://localhost:4200/product/add', { proname: this.product.proname, protype: this.product.protype, proimage: this.product.proimage }, { headers: this.header }).subscribe(function (data) {
             var response = data.json();
             console.log(response);
             alert(response.msg);
@@ -666,7 +666,7 @@ var RegistrationComponent = (function () {
             alert("Passwords do not match");
         }
         else {
-            this.http.post('http://localhost:8000/registration', { fname: this.user.fname, lname: this.user.lname, mno: this.user.mno, email: this.user.email, password: this.user.password, cpass: this.user.cpass }, { headers: this.header }).subscribe(function (data) {
+            this.http.post('http://localhost:4200/registration', { fname: this.user.fname, lname: this.user.lname, mno: this.user.mno, email: this.user.email, password: this.user.password, cpass: this.user.cpass }, { headers: this.header }).subscribe(function (data) {
                 var response = data.json();
                 console.log(response);
                 alert(response.msg);
