@@ -28,7 +28,7 @@ export class ContactsComponent{
    
          }
    API(){
-       let url="http://localhost:8000/getAll"
+       let url="http://localhost:4200/getAll"
       return this.http.get(url).map(
            res=>res.json()
        )

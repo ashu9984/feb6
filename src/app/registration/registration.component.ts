@@ -36,7 +36,7 @@ export class RegistrationComponent {
         }
         else
         {
-            this.http.post('http://localhost:4200/registration', { fname:this.user.fname,lname:this.user.lname,mno:this.user.mno,email:this.user.email, password:this.user.password,cpass:this.user.cpass}, { headers: this.header }).subscribe(data => {
+            this.http.post('/registration', { fname:this.user.fname,lname:this.user.lname,mno:this.user.mno,email:this.user.email, password:this.user.password,cpass:this.user.cpass}, { headers: this.header }).subscribe(data => {
                 let response = data.json()
                 console.log(response);
                 alert(response.msg)

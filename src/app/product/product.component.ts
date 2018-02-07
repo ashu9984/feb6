@@ -29,7 +29,7 @@ export class ProductComponent {
     }
     register() {
         
-            this.http.post('http://localhost:4200/product/add', { proname:this.product.proname,protype:this.product.protype,proimage:this.product.proimage}, { headers: this.header }).subscribe(data => {
+            this.http.post('/product/add', { proname:this.product.proname,protype:this.product.protype,proimage:this.product.proimage}, { headers: this.header }).subscribe(data => {
                 let response = data.json()
                 console.log(response);
                 alert(response.msg)

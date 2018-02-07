@@ -34,7 +34,7 @@ export class ProductDisplayComponent  {
 
       }
 API(){
-    let url="http://localhost:4200/product/getdata"
+    let url="/product/getdata"
    return this.http.get(url).map(
         res=>res.json()
     )
@@ -46,7 +46,7 @@ call(){
      
  })
 }
-deleteUser(_id: string) {
+deleteUser(_id) {
     this.map.deleteUser(_id).subscribe(() => { this.call() });
 }
 

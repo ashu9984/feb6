@@ -41,9 +41,11 @@ app.use(function(req, res, next) {
     next();
   });
   
-  app.use(express.static(path.join(__dirname, 'dist')))
+  app.use(express.static(path.join('dist')))
   
 app.use('/',registrationLogin)
 app.use('/product',product)
 
 app.listen(port, () => console.log(`Listening on ${ port }`))
+
+

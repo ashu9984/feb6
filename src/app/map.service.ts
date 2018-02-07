@@ -9,18 +9,18 @@ export class MapService {
   }
   
   get(){
-   return this.http.get("http://localhost:4200/geta").map(result=>result.json());
+   return this.http.get("/geta").map(result=>result.json());
 
   }
   getproduct(){
-    return this.http.get("http://localhost:4200/product/getdata").map(result=>result.json());
+    return this.http.get("/product/getdata").map(result=>result.json());
  
    }
 
   
     
-   deleteUser(_id:string) {
-    return this.http.delete('http://localhost:4200/product/delete/'+_id);
+   deleteUser(_id) {
+    return this.http.delete('/product/delete/'+_id);
 }
 }
 
