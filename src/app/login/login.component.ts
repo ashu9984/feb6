@@ -14,6 +14,7 @@ export class LoginComponent  {
     user={
         email:'',
         password:"",
+        otp:""
         
     }
 
@@ -25,7 +26,7 @@ export class LoginComponent  {
     ngOnInit(){
     }
     login() {
-        this.http.post('/login', {email:this.user.email, password:this.user.password}, { headers: this.header }).subscribe(data => {
+        this.http.post('/login', {email:this.user.email, password:this.user.password,otp:this.user.otp}, { headers: this.header }).subscribe(data => {
             let response = data.json();
             console.log(response);
             alert(response.msg);

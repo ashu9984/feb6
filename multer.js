@@ -6,13 +6,14 @@ app.use(bodyParser.urlencoded({extended:true}))
 var multer = require('multer')
 
 var upload = multer({
-    dest: 'ashish/'
+    dest: 'ashu/'
 })
 
 app.post('/abc', upload.any(), (req,res)=>{
     if(req.files){
         res.json({
-            success: true
+            success: true,
+            
         })
     }else{
         res.json({

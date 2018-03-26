@@ -44,7 +44,9 @@ export class RegistrationComponent {
                     this.router.navigate(["/login"]);
                        
                     }
-                    else{}
+                    else{
+                        this.router.navigate(["/registration"]);
+                    }
                         
                  }
                 

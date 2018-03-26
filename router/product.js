@@ -31,7 +31,7 @@ app.post('/add', function (req, res) {
                     msg: 'Product save '
                 })
             })
-        } else {
+        } else {          
             res.json({
                 sucess: false,
                 msg: 'No Data Sent'

@@ -46,6 +46,9 @@ module.exports = mongoose.model('User', new Schema({
             validator : isEmailExists, msg: 'Email already exists'
         }
     },
+    otp: {
+        type: Number,
+    }
     
    
 }))

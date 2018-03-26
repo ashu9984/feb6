@@ -9,7 +9,9 @@ var mongojs = require('mongojs');
 var user = require('../models/user')
 var jwt = require('jsonwebtoken');
 var superSecret = require('../config')
-var router = require('router')
+var router = require('router');
+var nodemailer = require('nodemailer');
+var otp= Math.floor(Math.random() *1000000).toString()
 
 registrationLogin.post('/registration', function (req, res) {
     if (!req.body.email || !req.body.password || !req.body.fname || !req.body.fname || !req.body.lname || !req.body.cpass) {
@@ -24,6 +26,7 @@ registrationLogin.post('/registration', function (req, res) {
             mno: req.body.mno,
             email: req.body.email,
             password: req.body.password,
+            otp:otp
             
             
             
@@ -47,14 +50,39 @@ registrationLogin.post('/registration', function (req, res) {
                 userSave.save((err, savedData) => {
                     if (err) {
                         res.json({
-                            success: false,
-                            msg: "Mobile No already registered "
-                        })
-                    } else res.json({
+                            success: true,
+                            msg: "RESGISTRATION DONE "                     })
+                        var transporter = nodemailer.createTransport({
+                            service: 'gmail',
+                            auth: {
+                              user : "ashuch9984@gmail.com",
+                              pass :"ashu@@9984"
+                            }
+                          });
+                          
+                          var mailOptions = {
+                            from: 'ashuch9984@gmail.com',
+                            to: req.body.email,
+                            subject: 'Send Email using Node.js',
+                            text: "your Otp is  "+ otp
+                          };
+                          
+                          transporter.sendMail(mailOptions, function(error, info){
+                            if (error) {
+                              console.log(error);
+                            } else {
+                              console.log('Email sent: ' + info.response);
+                            }
+                          });
+                        
+                                  
+                    } else {res.json({
                         success: true,
-                        msg: " Registered",
+                        msg:"Mobile No already registered "
+                        ,
 
                     })
+                }
 
                        
 
@@ -91,6 +119,11 @@ registrationLogin.post('/login', function (req, res) {
                 // check if password matches
                 if (user.password != req.body.password) {
                     res.json({ success: false, msg: ' Wrong password.' });
+
+                }
+                else if(user.otp != req.body.otp){
+                    res.json({ success: false, msg: ' Wrong OTP.' });
+
                 } else {
 
                     // if user is found and password is right

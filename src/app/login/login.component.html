@@ -49,6 +49,14 @@
                       <span class="help-block" *ngIf="password.errors.maxlength">password must be less than 8.</span>
                   </div>
     </div>
+    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !otp.valid }">
+        <label for="otp">OTP</label>
+        <input type="text" class="form-control" placeholder="Enter OTP" name="otp" [(ngModel)]="user.otp" #otp="ngModel" minlength="6" maxlength="6" required />
+        <div *ngIf="f.submitted && !otp.valid" class="help-block"> otp must be entered</div>
+      <div *ngIf="otp.errors && otp.touched">
+                      <span class="help-block" *ngIf="otp.errors.required"> otp must be entered.</span>
+                  </div>
+    </div>
   
      
       <div class="form-group">

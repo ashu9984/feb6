@@ -16,17 +16,25 @@ import{FooterComponent} from'./footer.component';
 import { MapComponent } from './map/map.component';
 import{ProductComponent} from './product/product.component';
 import{ProductDisplayComponent} from './product display/productdisplay.component'
-import{MapService} from'./map.service'
+import{MapService} from'./map.service';
+import{FormsService} from'./forms.service';
+import { ProfileComponent } from './profile/profile.component'
+import { HttpClientModule} from '@angular/common/http';
+import {FileUploadModule} from 'ng2-file-upload';
+import{FileService} from'./file.service';
+import{FileUploaderService} from'./file-uploader-service';
+
 @NgModule({
   declarations: [
-    AppComponent, LoginComponent,ContactsComponent,RegistrationComponent,FooterComponent, MapComponent,ProductComponent, ProductDisplayComponent
+   
+    AppComponent, LoginComponent,ContactsComponent,RegistrationComponent,FooterComponent, MapComponent,ProductComponent, ProductDisplayComponent, ProfileComponent
   ],
   
   imports: [
-    BrowserModule,FormsModule,RouterModule.forRoot([
+  FileUploadModule,HttpClientModule, BrowserModule,FormsModule,RouterModule.forRoot([
      {
         path:'',
-        component:LoginComponent
+        component:ProfileComponent
       },{
         path:'registration',
         component:RegistrationComponent
@@ -54,7 +62,7 @@ import{MapService} from'./map.service'
     HttpModule
   ],
   providers: 
-    [MapService],
+    [MapService,FormsService,FileService,FileUploaderService],
   bootstrap: [AppComponent]
 }) 
 
