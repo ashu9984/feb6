@@ -10,7 +10,10 @@ var config = require('./config')
 var registrationLogin = require('./router/registrationLogin')
 var product = require('./router/product')
 var profile = require('./router/profile')
+<<<<<<< HEAD
 
+=======
+>>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
 var jwtVerify = require('./router/jwtVerify')
 
 

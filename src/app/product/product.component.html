@@ -81,7 +81,6 @@
         <label for="proimage">Product Image </label>
         <input type="text" placeholder="Enter Product Image" class="form-control" name="proimage" [(ngModel)]="product.proimage"
           #proimage="ngModel" required />
-        <div *ngIf="f.submitted && !proimage.valid" class="help-block">Product Image is required</div>
       </div>
       
       
