@@ -16,7 +16,7 @@ var jwtVerify = require('./router/jwtVerify')
 var busboyBodyParser = require('busboy-body-parser');
 
 
-var port = process.env.PORT || 4100; // used to create, sign, and verify tokens
+var port = process.env.PORT || 4200; // used to create, sign, and verify tokens
 mongoose.connect(config.database); // connect to database
 
 

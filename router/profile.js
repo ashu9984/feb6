@@ -39,7 +39,7 @@ var multerConf={
 app.get('/',function(req,res){
 
 })
-app.post('/abc',multer(multerConf).single('photo') ,function(req,res){
+app.post('/',multer(multerConf).single('photo') ,function(req,res){
   res.send('this post')
 })
 

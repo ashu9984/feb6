@@ -12,7 +12,7 @@ export class FileUploaderService {
     }
 
       public  uploadImage(formdata: any ) {
-        let _url: string = 'http://localhost:4100/profile/abc';
+        let _url: string = 'http://localhost:4200/profile/abc';
         return this._http.post(_url, formdata)
         .catch(this._errorHandler) ;
     }
