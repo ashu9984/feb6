@@ -1,7 +1,6 @@
 
 
 
-<<<<<<< HEAD
 var express = require('express')
 var app=express.Router();
 var multer  = require('multer')
@@ -30,17 +29,6 @@ var multerConf={
   storage:multer.diskStorage({
     destination:function(req,file,next){
       next(null,'/home/amit/Desktop/feb8/ashu')
-=======
-
-/*var express = require('express')
-var app=express.Router();
-var multer  = require('multer')
-
-var multerConf={
-  storage:multer.diskStorage({
-    destination:function(req,file,next){
-      next(null,'/home/amit/Desktop/ashu/26Dec-master/ashish')
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
     },
     filename:function(req,file,next){
       console.log(file);
@@ -55,34 +43,19 @@ app.post('/abc',multer(multerConf).single('photo') ,function(req,res){
   res.send('this post')
 })
 
-<<<<<<< HEAD
-=======
-module.exports = app;*/
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
 
 var express = require('express')
 var app = express.Router()
 
 
-<<<<<<< HEAD
 
 
 
-=======
-var profile = require('../models/profile')
-
-
-var multer = require('multer')
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
 
 var multerConf = {
   storage: multer.diskStorage({
     destination: function (req, file, next) {
-<<<<<<< HEAD
       next(null, './ashu')
-=======
-      next(null, '/home/amit/Desktop/ashu/26Dec-master/ashish')
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
     },
     filename: function (req, file, next) {
       var ext = file.mimetype.split("/")[1];
@@ -105,11 +78,7 @@ var multerConf = {
 
 }
 
-<<<<<<< HEAD
 app.post('/abc', multer(multerConf).single("photo"), (req, res, ) => {
-=======
-app.post('/', multer(multerConf).single("photo"), (req, res, ) => {
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
 
   if (req.file) {
     console.log(req.file)
@@ -135,26 +104,17 @@ app.post('/', multer(multerConf).single("photo"), (req, res, ) => {
 
       res.json({
         success: true,
-<<<<<<< HEAD
         msg: 'Product save ',
         photo:req.body.photo
         
-=======
-        msg: 'Product save '
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
       })
     })
   } else {
     res.json({
-<<<<<<< HEAD
      
       success:false,
       msg: 'NO data save '
       
-=======
-      sucess: false,
-      msg: 'No Data Sent'
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
     })
   }
 
@@ -170,12 +130,8 @@ app.get('/getphoto', function (req, res) {
               console.log(data);
               res.json({
                  success: true,
-<<<<<<< HEAD
                   photo :this.photo,
                   data:data
-=======
-                  photo :req.file.filename
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
                   
                  
               });
@@ -191,11 +147,7 @@ app.get('/getphoto', function (req, res) {
           
   
   
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> da88dc66777a0a490051e7bc23a363b818539abe
   
       })
       console.log("get api call");
